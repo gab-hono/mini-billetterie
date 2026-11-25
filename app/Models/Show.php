@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Show extends Model
+{
+    protected $fillable = [
+        'title',
+        'venue',
+        'date',
+        'capacity',
+        'tickets_sold',
+        'ticket_price',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'date' => 'datetime',
+            'capacity' => 'integer',
+            'tickets_sold' => 'integer',
+            'ticket_price' => 'decimal:2',
+        ];
+    }
+}
