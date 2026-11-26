@@ -24,4 +24,11 @@ class Show extends Model
             'ticket_price' => 'decimal:2',
         ];
     }
+
+    public function fillRate(): float
+    {
+        return $this->capacity > 0
+            ? round($this->tickets_sold / $this->capacity * 100, 1)
+            : 0.0;
+    }
 }
