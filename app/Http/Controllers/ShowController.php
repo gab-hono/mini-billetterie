@@ -16,5 +16,11 @@ class ShowController extends Controller
             'fill_rate' =>$show->fillRate(),
         ]);
 
-        return response()->json($shows, 200, [], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);    }
+        return response()->json($shows, 200, [], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    }
+
+    public function home()
+    {
+        return view('shows.index', ['shows' => Show::all()]);
+    }
 }
